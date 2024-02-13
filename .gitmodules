@@ -1,0 +1,15 @@
+[submodule "themes/ananke"]
+	path = themes/ananke
+	url = https://github.com/theNewDynamic/gohugo-theme-ananke.git
+[submodule "hugo-coder"]
+	path = hugo-coder
+	url = https://github.com/superznake/hugo-coder
+[submodule "themes/hugo-coder"]
+	path = themes/hugo-coder
+	url = https://github.com/superznake/hugo-coder
+[submodule "themes/hugo-xterm"]
+	path = themes/hugo-xterm
+	url = https://github.com/superznake/hugo-xterm
+[submodule "themes/risotto"]
+	path = themes/risotto
+	url = https://github.com/superznake/risotto
