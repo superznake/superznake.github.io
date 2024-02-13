@@ -2,3 +2,16 @@ baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
 theme = 'risotto' 
+# Automatically add content sections to main menu
+sectionPagesMenu = "main"
+
+[params]
+noindex = false
+
+[params.theme]
+palette = "base16-dark"
+
+# Sidebar: about/bio
+[params.about]
+title = "risotto"
+logo_image = "images/work.jpg"
