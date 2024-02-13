@@ -14,4 +14,4 @@ palette = "base16-dark"
 # Sidebar: about/bio
 [params.about]
 title = "risotto"
-logo_image = "images/work.jpg"
+logo_image = "images/work.svg"
