@@ -1,11 +1,310 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Портфолио</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ткаченко Артём | Python-разработчик</title>
+  <meta name="description" content="Портфолио разработчика — проекты, навыки, контакты"/>
+
+  <!-- Favicon (можно заменить на своё) -->
+  <link rel="icon" href="https://via.placeholder.com/32" />
+
+  <style>
+    :root {
+      --bg: #f8f9fa;
+      --text: #212529;
+      --card: #ffffff;
+      --accent: #6366f1;
+      --accent-dark: #4f46e5;
+      --gray: #6b7280;
+    }
+
+    [data-theme="dark"] {
+      --bg: #111827;
+      --text: #f3f4f6;
+      --card: #1f2937;
+      --accent: #818cf8;
+      --accent-dark: #6366f1;
+      --gray: #9ca3af;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    header {
+      padding: 6rem 0 4rem;
+      text-align: center;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      color: white;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.4rem;
+      opacity: 0.95;
+    }
+
+    nav {
+      position: fixed;
+      top: 1rem;
+      right: 1.5rem;
+      z-index: 100;
+    }
+
+    .theme-toggle {
+      background: rgba(255,255,255,0.15);
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+      transition: all 0.3s;
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255,255,255,0.3);
+      transform: scale(1.1);
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.4rem;
+      margin-bottom: 3rem;
+      color: var(--accent);
+    }
+
+    .about p {
+      max-width: 720px;
+      margin: 0 auto 1.5rem;
+      font-size: 1.15rem;
+      text-align: center;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .skill-tag {
+      background: var(--accent);
+      color: white;
+      padding: 0.5rem 1.2rem;
+      border-radius: 2rem;
+      font-weight: 500;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: var(--card);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
+
+    .project-img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: #e5e7eb;
+    }
+
+    .project-content {
+      padding: 1.5rem;
+    }
+
+    .project-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-tech {
+      color: var(--accent);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-links a {
+      color: var(--accent);
+      text-decoration: none;
+      margin-right: 1.2rem;
+      font-weight: 500;
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact a {
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin: 0 1rem;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 0;
+      color: var(--gray);
+      border-top: 1px solid rgba(107,114,128,0.2);
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 640px) {
+      header { padding: 5rem 0 3rem; }
+      h2 { font-size: 2rem; }
+    }
+  </style>
 </head>
 <body>
-    <h1>Моё портфолио</h1>
-    <p>Сайт в процессе разработки...</p>
+
+  <nav>
+    <button class="theme-toggle" aria-label="Переключить тему">☀️</button>
+  </nav>
+
+  <header>
+    <div class="container">
+      <h1>Ткаченко Артём</h1>
+      <p class="subtitle">Python-разработчик</p>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <h2>Обо мне</h2>
+      <p>Разрабатываю различные программы. В основном занимался ТГ ботами.</p>
+      <p>Люблю чистый код, aiogram, aiogram-dialog, fastapi, иногда экспериментирую с новыми инструментами.</p>
+
+      <div class="skills">
+        <span class="skill-tag">Pyton</span>
+        <span class="skill-tag">aiogram · aiogram-dialog</span>
+        <span class="skill-tag">FastApi</span>
+        <span class="skill-tag">Git · GitHub</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" style="background:var(--card);">
+    <div class="container">
+      <h2>Проекты</h2>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <img class="project-img" src="images/irnby.jpg" alt="ТГ бот для бренда IRNBY">
+          <div class="project-content">
+            <h3 class="project-title">ТГ бот для бренда IRNBY</h3>
+            <p class="project-tech">Python · aiogram · aiogram-dialog · Docker</p>
+            <div class="project-links">
+              <a href="https://t.me/irnbystorebot" target="_blank">Бот</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img class="project-img" src="images/makedesign.jpg" alt="ТГ бот для студии Makedesign">
+          <div class="project-content">
+            <h3 class="project-title">ТГ бот для студии Makedesign</h3>
+            <p class="project-tech">Python · aiogram · aiogram-dialog · Docker</p>
+            <div class="project-links">
+              <a href="https://t.me/M4kedesignBot" target="_blank">Бот</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img class="project-img" src="https://images.unsplash.com/photo-1555066931-bf19c99fd580?w=800" alt="Проект 3">
+          <div class="project-content">
+            <h3 class="project-title">Личный сайт-портфолио</h3>
+            <p class="project-tech">HTML · CSS (vanilla) · GitHub Pages</p>
+            <div class="project-links">
+              <a href="https://github.com/superznake/superznake.github.io" target="_blank">GitHub</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container contact">
+      <h2>Связаться</h2>
+      <p style="margin:2rem 0 1.5rem">
+        <a href="mailto:superznake@yandex.ru">superznake@yandex.ru</a><br><br>
+        <a href="https://github.com/superznake" target="_blank">GitHub</a> •
+        <a href="https://t.me/nosferatu_gk" target="_blank">Telegram</a> •
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Ткаченко Артём · Создано с GitHub Pages</p>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.theme-toggle');
+    const html = document.documentElement;
+
+    const savedTheme = localStorage.getItem('theme') ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+    html.setAttribute('data-theme', savedTheme);
+    toggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+    toggle.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      toggle.textContent = next === 'dark' ? '☀️' : '🌙';
+    });
+  </script>
+
 </body>
 </html>
